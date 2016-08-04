@@ -76,7 +76,7 @@ module PuppetCatalogTest
       when Puppet::Resource
         matching_resource = catalog.resources.find do |resource|
           resource.type == value.type &&
-            (resource.title == value.title ||
+            (resource.title.to_s == value.title.to_s ||
              resource[:name] == value.title ||
              resource[:alias] == value.title)
         end
